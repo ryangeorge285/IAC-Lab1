@@ -1,0 +1,10 @@
+rm -rf obj_dir
+rm -f counter.vcd
+
+verilator -Wall --cc --trace counter_c2.sv --exe counter_c2_tb.cpp
+
+make -j -C obj_dir/ -f Vcounter_c2.mk Vcounter_c2
+
+obj_dir/Vcounter_c2
+
+gtkwave counter_c2.vcd
